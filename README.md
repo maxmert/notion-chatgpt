@@ -1,5 +1,16 @@
 **Important**. This code is 💩, I wrote it in 1 hour and didn't think about resilience, maintainability or handling edge cases. It's a proof of concept and should not be used in production. 
 
+## Task
+When I share any internet article with Notion, I:
+- (this functionality provided by Notion) Get the Notion Page, with article URL (should be a separate property of the Notion Database), title, and (in some cases) description
+- I want the service to check the Notion Database every 10 minutes and fetch all Pages
+- If the Page not updated (a tag "updated" not attached), I want the service to update the Page with the new content:
+  - (if text do not exist) scrape the URL (again, this property should be added to Notion Database just once) and get the summary from ChatGPT and attach it to the Page
+  - create the audio file from the summary using ChatGPT
+  - attach the audio file to the Page
+  - add the tag "updated" to the Page
+ 
+
 Essentially, you will need to deploy your service to Cloud Run and then set up a Cloud Scheduler job to trigger the service at your desired interval (every 10 minutes in this case). Here's a step-by-step guide on how to achieve this, with a dash of wit to keep things lively.
 ## Local
 Create `.env` file with the following content:
