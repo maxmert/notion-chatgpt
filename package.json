@@ -1,0 +1,32 @@
+{
+  "name": "notion",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker buildx build --platform linux/amd64 --build-arg NODE_ENV=production --build-arg PORT=8080 -t gcr.io/notion-425009/notion-service .",
+    "docker:build:dev": "docker build -t notion-service .",
+    "docker:push": "docker push gcr.io/notion-425009/notion-service",
+    "docker:run": "docker run -it gcr.io/notion-425009/notion-service /bin/sh",
+    "start": "node index.js",
+    "deploy": "gcloud run deploy notion-service --image gcr.io/notion-425009/notion-service --platform managed --region europe-west3 --allow-unauthenticated",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/storage": "^7.11.1",
+    "axios": "^1.7.2",
+    "axios-cookiejar-support": "^5.0.2",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "google-tts-api": "^2.0.2",
+    "lodash": "^4.17.21",
+    "node-cron": "^3.0.3",
+    "openai": "^4.47.2",
+    "puppeteer": "^22.10.0",
+    "tough-cookie": "^4.1.4"
+  }
+}

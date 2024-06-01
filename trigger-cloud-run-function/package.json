@@ -1,0 +1,13 @@
+{
+  "name": "trigger-cloud-run-function",
+  "packageManager": "yarn@4.0.2",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "deploy": "gcloud functions deploy triggerCloudRun --runtime nodejs14 --trigger-topic NOTION_LINKS_CHECK  --allow-unauthenticated --entry-point triggerCloudRun --region europe-west3"
+  },
+  "main": "index.js",
+  "type": "module"
+}
