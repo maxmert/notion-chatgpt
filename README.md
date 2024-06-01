@@ -2,12 +2,14 @@
 
 ## Task
 When I share any internet article with Notion, I:
-- (this functionality provided by Notion) Get the Notion Page, with article URL (should be a separate property of the Notion Database), title, and (in some cases) description
+- (this functionality provided by Notion) Get the Notion Page, with article URL, title, and (in some cases) description
+  - *(you need to do it once)* Create property "**URL**" in the Notion Database with type *URL*
+  - *(you need to do it once)* Create property "**Audio**" in the Notion Database with type *Files & Media*
 - I want the service to check the Notion Database every 10 minutes and fetch all Pages
 - If the Page not updated (a tag "updated" not attached), I want the service to update the Page with the new content:
-  - (if text do not exist) scrape the URL (again, this property should be added to Notion Database just once) and get the summary from ChatGPT and attach it to the Page
+  - (if text do not exist) scrape the URL and get the summary from ChatGPT and attach it to the Page
   - create the audio file from the summary using ChatGPT
-  - attach the audio file to the Page
+  - attach the audio file to the Page's property "Audio"
   - add the tag "updated" to the Page
  
 
